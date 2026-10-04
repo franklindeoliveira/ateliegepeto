@@ -596,30 +596,22 @@
     if (!videoId) return null;
 
     const article = document.createElement("article");
-    article.className = "card youtube-card";
+    article.className = "card";
 
     article.innerHTML = `
       <div class="carousel">
         <div class="carousel-track">
           <iframe
-            src="https://www.youtube-nocookie.com/embed/${encodeURIComponent(videoId)}?rel=0"
+            src="https://www.youtube.com/embed/${encodeURIComponent(videoId)}?mute=0"
             loading="lazy"
-            title="${escapeHtml(title)}"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            frameborder="0"
+            title="${escapeHtml(title)}"            
             allowfullscreen>
           </iframe>
         </div>
       </div>
 
       <h3>${escapeHtml(title)}</h3>
-
-      <a
-        class="youtube-link"
-        href="https://www.youtube.com/watch?v=${encodeURIComponent(videoId)}"
-        target="_blank"
-        rel="noopener noreferrer">
-        Assistir no YouTube
-      </a>
     `;
 
     return article;
